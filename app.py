@@ -1,26 +1,31 @@
 # aa-api/app.py
 
 from flask import Flask, jsonify, request
+from database.db import initialize_db
 
 app = Flask(__name__)
+app.config['MONGODB_SETTINGS'] = {
+    'host': 'mongodb://localhost/aa-motors'
+}
 
+initialize_db(app)
 
-buses = [
-    {
-        "number_plate": "NAX 123",
-        "manufacturer": "Toyota",
-        "model": "Hiace",
-        "year": "2009",
-        "capcity": 18
-    },
-    {
-        "number_plate": "LX Z19",
-        "manufacturer": "Ford",
-        "model": "FordX",
-        "year": "2010",
-        "capcity": 45
-    }
-]
+# buses = [
+#     {
+#         "number_plate": "NAX 123",
+#         "manufacturer": "Toyota",
+#         "model": "Hiace",
+#         "year": "2009",
+#         "capcity": 18
+#     },
+#     {
+#         "number_plate": "LX Z19",
+#         "manufacturer": "Ford",
+#         "model": "FordX",
+#         "year": "2010",
+#         "capcity": 45
+#     }
+# ]
 
 
 @app.route('/buses')
