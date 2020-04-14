@@ -8,6 +8,7 @@ autopep8 = "*"
 
 [packages]
 flask = "*"
+flask-mongoengine = "*"
 
 [requires]
 python_version = "3.8"
